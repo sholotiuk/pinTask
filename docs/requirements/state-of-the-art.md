@@ -90,7 +90,7 @@
 Вимоги | Критерії |Project4 |Github Projects | Trello | Backlog
 --- | --- | --- |  --- | --- | ---       
 **Functionality**|	Інтеграція з Github | 🟢 | 🟢 | 🔴 | 🟢 
-  | agile - орієнтованість |🟢 | 🟢 | 🟡 | 🔴
+ --- | agile - орієнтованість |🟢 | 🟢 | 🟡 | 🔴
 --- | Розширення | 🟢 | 🟡 | ⚪️ | 🟡
 **Usability** | user-friendly дизайн | 🟢 | 🟡 | 🟢 | 🟢
 --- | Help center |  🔴 |  🟢 | ⚪️ | 🟢
