@@ -25,7 +25,6 @@
  ![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/UC_7.png)
 
 
-
 ## ФУНКЦІОНАЛЬНІСТЬ
  ![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/UC_8.png)
 
