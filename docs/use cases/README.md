@@ -1,7 +1,10 @@
 # Модель прецедентів
 
 
-### Сценарій створення плану проекту
+## ФУНКЦІОНАЛЬНІСТЬ
+ ![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/UC_8.png)
+ 
+ ### Сценарій створення плану проекту
 ![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/UC_1.png)
  
 ### Сценарій запуску проекту
@@ -21,7 +24,6 @@
  ![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/UC_7.png)
 
 
-## ФУНКЦІОНАЛЬНІСТЬ
- ![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/UC_8.png)
+
 
 
