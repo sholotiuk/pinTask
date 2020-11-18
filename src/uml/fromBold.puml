@@ -1,0 +1,67 @@
+@startuml
+
+entity Text {
+    content: text
+    title: text
+}
+entity Corpus {
+    name: text
+    description: text 
+}
+
+
+entity User {
+    email: email
+    password: pwdString
+    avatar: url
+}
+
+
+entity Access {
+}
+
+entity Role{
+    name: text 
+    description: text
+}
+
+
+entity Node {
+    type: text
+    value: text <<Nullable>>
+    branch: text
+}
+
+entity Property {
+    name: text
+    type: text
+}
+
+entity PropValue {
+    value
+}
+
+PropValue "0,*" -- "1,1" Node
+PropValue "0,*" -- "1,1" Property
+
+Node "childs(0,*)"-o "parent(0,1)"Node
+
+Text "(1,1)" - "(0,*)" Node : Source
+
+User "(1,1)"-l- "(0,*)" Node : Author
+
+
+
+Text "(0,*)"-u-"(1,1)" Corpus
+Access "(0,*)"-l-"(1,1)" Corpus
+Access "(0,*)"-"(1,1)" User
+Access "(0,*)"-u-"(1,1)" Role
+
+
+
+
+
+
+
+
+@enduml
