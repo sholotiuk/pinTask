@@ -1,4 +1,5 @@
 # Модель прецедентів
+![IMAGE TITLE](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/PROJECT-4/master/src/uml/fromBold.puml)
 
 https://raw.githubusercontent.com/sholotyuk/PROJECT-4/master/src/uml/fromBold.puml
 
