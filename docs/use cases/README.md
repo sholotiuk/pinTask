@@ -19,23 +19,23 @@ https://raw.githubusercontent.com/sholotyuk/PROJECT-4/master/src/uml/fromBold.pu
 
 end header
 
-![](https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_1.puml)
+![IMAGE TITLE](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_1.puml)
  
 ### Сценарій запуску проекту
-![](https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_2.puml)
+![IMAGE TITLE](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_2.puml)
 
 ### Сценарій отримання завдання
- ![](https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_3.puml)
+ ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_3.puml)
  
 ### Сценарій передачі результату роботи
- ![](https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_4.puml)
+ ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_4.puml)
  
 ### Сценарій виконання завдання
- ![](https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_5.puml)
+ ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_5.puml)
  
 ### Сценарії обробки помилок
- ![](https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_6.puml)
- ![](https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_7.puml)
+ ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_6.puml)
+ ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_7.puml)
 
 
 
