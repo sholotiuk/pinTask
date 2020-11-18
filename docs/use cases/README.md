@@ -3,7 +3,7 @@
 ## ФУНКЦІОНАЛЬНІСТЬ
 Система керування проектами сталої якості.
 Основні процеси.
- ![](https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_8.puml)
+ ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_8.puml)
  
  ## Сценарій створення плану проекту
  
