@@ -1,5 +1,6 @@
 # Модель прецедентів
 
+https://raw.githubusercontent.com/sholotyuk/PROJECT-4/master/src/uml/fromBold.puml
 
 ## ФУНКЦІОНАЛЬНІСТЬ
  ![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/UC_8.png)
