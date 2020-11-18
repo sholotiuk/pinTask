@@ -13,7 +13,8 @@ entity Corpus {
 entity User {
     email: email
     password: pwdString
-    avatar: url
+    avatar: url,
+    phone: text
 }
 
 
