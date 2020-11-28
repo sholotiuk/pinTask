@@ -3,10 +3,10 @@
 *В рамках проекту розробляється модель бізнес-об'єктів, ER-модель та реляційна схема.*
 
 ### Модель бізнес-об'єктів
-![](https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/BEM)
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/BEM)
 
 ### ER-модель
-![](https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/ERM)
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/ERM)
 
 ### Реляційна схема
 ![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/Rel%20scheme.jpg)
