@@ -1,0 +1,76 @@
+@startuml BEM
+title
+<font size=16 color=black>BE-модель
+end title
+
+entity Person
+entity Person.id
+entity Person.username
+entity Person.publickey
+entity Person.qualities
+
+Person.id --* Person
+Person.username --* Person
+Person.publickey --* Person
+Person.qualities --* Person
+
+
+entity Group
+entity Group.id
+entity Group.name
+
+Group.id --* Group
+Group.name --* Group
+
+entity Privilege
+entity Privilege.id
+entity Privilege.type
+
+Privilege.id --* Privilege
+Privilege.type --* Privilege
+
+entity Task
+entity Task.id
+entity Task.details
+
+Task.id --* Task
+Task.details --* Task
+
+entity Signature
+entity Signature.id
+entity Signature.rawdata
+
+Signature.id --* Signature
+Signature.rawdata --* Signature
+
+entity Artefact
+entity Artefact.id
+entity Artefact.uniqueName
+entity Artefact.details
+
+Artefact.id --* Artefact
+Artefact.uniqueName --* Artefact
+Artefact.details --* Artefact
+
+entity Project
+entity Project.id
+entity Project.name
+
+Project.id --* Project
+Project.name --* Project
+
+Signature "0,*"--"1,1" Person
+Group "0,*"--*"0,*" Person
+Group "0,*"--"0,*" Privilege
+Privilege "0,*"--"1,1" Task
+Task "1,1"--"0,*" Signature
+Task "0,*"-d-"0,*" Artefact
+Project "1,1"--"0,*" Task
+Project "1,1"--"0,*" Artefact
+
+right footer
+Організація баз даних
+НТУУ "КПІ ім.І.Сікорського"
+Київ 2020
+end footer
+@enduml
