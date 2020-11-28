@@ -57,6 +57,7 @@ ArtefactLink "0,*"--*"1,1" Task
 ArtefactLink "0,*"--*"1,1" ArtefactRole
 
 right footer
+Організація баз даних
 НТУУ "КПІ ім.І.Сікорського"
 Київ 2020
 end footer
