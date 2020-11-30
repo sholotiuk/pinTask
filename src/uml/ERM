@@ -40,17 +40,24 @@ entity Project {
     name
 }
 
+entity Dictionary {
+id
+key 
+value
+}
+
 Signature "0,*"--"1,1" Task
 Signature "0,*"--"1,1" Person
 Signature "0,*"--"1,1" Role
-Signature "0,*"--"1,1" Rolelink
+Signature "0,*"--*"1,1" RoleLink
 Role "0,*"--"1,1" Project
 
 RoleLink "0,*"--*"1,1" Role
 RoleLink "0,*"--*"1,1" Person
+RoleLink "0,*"--*"1,1" Project
 
 Task "0,*"--"1,1" Person
-Task "0,*"--"1,1" Project
+Task "0,*"--*"1,1" Project
 
 ArtefactLink "0,*"--*"1,1" Artefact
 ArtefactLink "0,*"--*"1,1" Task
@@ -62,3 +69,4 @@ right footer
 Київ 2020
 end footer
 @enduml
+
