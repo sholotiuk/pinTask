@@ -43,7 +43,7 @@ entity Project {
 Signature "0,*"--"1,1" Task
 Signature "0,*"--"1,1" Person
 Signature "0,*"--"1,1" Role
-Signature "0,*"--*"1,1" Rolelink
+Signature "0,*"--"1,1" Rolelink
 Role "0,*"--"1,1" Project
 
 RoleLink "0,*"--*"1,1" Role
