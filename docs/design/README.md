@@ -9,4 +9,4 @@
 ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/ERM)
 
 ### Реляційна схема
-![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/Rel%20scheme.jpg)
+![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/Rel%20scheme.png)
