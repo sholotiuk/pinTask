@@ -1,0 +1,57 @@
+{
+  "name" : "DatabaseLabs",
+  "teams": {
+    "writers" : ["Stupident", "IliaSWAT"],
+    "writersQA" : ["Kristina200220", "chatprrr"],
+		"devs": ["sholotyuk", "v0ldemar01"]
+  },
+  "tasks": [
+    {
+      "name": "createReview",
+      "teams": [ "writers", "writersQA" ],
+      "yields": [ "review" ],
+      "details": "project ideas and content"
+    },
+    {
+      "name": "createRequests",
+      "teams": [ "writers", "writersQA" ],
+      "yields": [ "requests" ],
+      "details": "uml diagrams with the subsequent insertion to inquiries of interested persons"
+    },
+    {
+      "name": "createBEM",
+      "teams": [ "devs" ],
+      "yields": [ "bem" ],
+      "requires": [ "requests" ],
+      "details": "based on example from the lecture and use cases a logical model that documents the entities is generated "
+    },
+    {
+      "name": "createERM",
+      "teams": [ "devs" ],
+      "yields": [ "erm" ],
+      "requires": [ "requests" ],
+      "details": "based on BER and example from the lecture"
+    },
+    {
+      "name": "createWorkbenchProject",
+      "teams": ["devs"],
+      "yields": ["workbenchProject"],
+      "requires": ["erm"],
+      "details": "based on ERM, a relational database model is built and an SQL script is generated"
+    },
+    {
+      "name": "createServer",
+      "teams": [ "devs" ],
+      "yields": [ "server" ],
+      "requires": [ "workbenchProject" ],
+      "details": "create HTTP server, receive requests and interact on their basis with the database"
+    },
+    {
+      "name": "createClient",
+      "teams": [ "devs" ],
+      "yields": [ "client" ],
+      "requires": [ "server" ],
+      "details": "autocomplete the database, receiving and sending artefacts"
+    }
+  ]
+} 

@@ -1,0 +1,20 @@
+{
+  "name": "client",
+  "version": "0.0.1",
+  "description": "Клієнт системи управління проектами pinTask",
+  "main": "create.js",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sholotyuk/pinTask.git"
+  },
+  "author": "IO-92 subteam",
+  "license": "MIT"
+}
+  
