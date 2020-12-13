@@ -1,5 +1,5 @@
 # Система управління проєктами pinTask
-![](https://github.com/sholotyuk/pinTask/blob/master/docs/images/Logo.jpg)
+![Preview](https://github.com/sholotyuk/pinTask/blob/master/docs/images/Logo.jpg)
 
 **Команда:** Бондар Христина, Шолотюк Ганна, Михайлюк Євгеній, Долготьор Алевтина, Калашников Ілля
 
