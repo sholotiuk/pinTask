@@ -1,5 +1,15 @@
 "use strict";
+/** Class that creates a tasks, taking username, allows users to pick tasks
+ * Class Tasks also implements submitting and it's date and inserts them to the database tables
+ * It also is able to change some table artefacts
+ * @type {Task}
+ */
 module.exports = class Task {
+  /**Method creates a tasks, taking username, allows users to pick tasks
+   * It also implements tasks.name, tasks.details, roles.name
+   * @param username
+   * @returns {Promise<*>}
+   */
   static async fetch({ username }) {
     return (
       await global.db.execute(
@@ -22,6 +32,13 @@ module.exports = class Task {
       )
     )[0];
   }
+
+  /** Method allows picking tasks
+   * @param persons_id
+   * @param tasks_id
+   * @param roles_id
+   * @returns {Promise<*>}
+   */
   static async pick({ persons_id, tasks_id, roles_id }) {
     return global.db.execute(
       `update signatures
@@ -31,6 +48,11 @@ module.exports = class Task {
       [persons_id, tasks_id, roles_id]
     );
   }
+
+  /**  Method allows fetching picked tasks
+   * @param username
+   * @returns {Promise<*>}
+   */
   static async fetchPicked({ username }) {
     return (
       await global.db.execute(
@@ -47,6 +69,14 @@ module.exports = class Task {
       )
     )[0];
   }
+
+  /** Method implements submitting, writes it's date and inserts them to the database tables
+   * @param data
+   * @param persons_id
+   * @param tasks_id
+   * @param roles_id
+   * @returns {Promise<*>}
+   */
   static async submit({ data, persons_id, tasks_id, roles_id }) {
     global.db.execute(
       `update artefacts, artefact_links

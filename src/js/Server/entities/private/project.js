@@ -1,5 +1,17 @@
 "use strict";
+/** Class that creates a project, taking name, teams and tasks
+ * Class Project also implements different artefacts and inserts them to the database tables
+ * It also is able to delete some or all table artefacts
+ * @type {Project}
+ */
 module.exports = class Project {
+    /** Method creates a project, taking name, teams and tasks
+     * It also implements different artefacts and inserts them to the database tables
+     * @param name
+     * @param teams
+     * @param tasks
+     * @returns {Promise<{name, id: number}>}
+     */
   static async create({ name, teams, tasks }) {
     tasks.forEach((task) => {
       if (!task.yields) task.yields = [];
@@ -15,7 +27,7 @@ module.exports = class Project {
           .reduce((acc, arr) => [...acc, ...arr], [])
       ),
     ];
-    
+
     const artefactIds = Object.fromEntries(
       (
         await Promise.all(
@@ -29,7 +41,8 @@ module.exports = class Project {
             .map((promise) => promise.then(([res]) => res.insertId))
         )
       ).map((id, i) => [artefacts[i], id])
-    );    
+    );
+
     const roleIds = Object.fromEntries(
       await Promise.all(
         Object.entries(teams).map(async ([name, persons]) => {
@@ -56,6 +69,7 @@ module.exports = class Project {
         })
       )
     );
+
     const taskIds = Object.fromEntries(
       await Promise.all(
         tasks.map(async (task) => {
@@ -89,6 +103,11 @@ module.exports = class Project {
     );
     return {id, name};
   }
+
+    /** Method is able to delete some or all table artefacts
+     * It also connected to database tables and works with them
+     * @returns {Promise<void>}
+     */
   static async clear() {
     const tables = ['projects', 'artefacts', 'roles', 'role_links', 'tasks', 'artefact_links', 'signatures'];
     await global.db.execute(

@@ -1,13 +1,20 @@
 "use strict";
-
+/** File creates parses configurations, creates server, implements endpoints
+ */
 const fs = require("fs");
 const http = require("http");
 const mysql = require("mysql2/promise");
-
+/**
+ * @type {function(*, *, *=): void}
+ */
 const httpError = require("./utils/httpError");
 const loadEntities = require("./utils/loadEntities");
 
+/**
+ * Function can Run server and able to return 'Server error' or 'Server started'
+ */
 (async function main() {
+
   const entities = {
     public: new Map(),
     private: new Map(),
