@@ -1,5 +1,5 @@
 # Пояснювальна записка
-
+![Preview](https://github.com/sholotyuk/pinTask/blob/master/docs/images/Logo.jpg)
 ### Зміст
 1. [Вступ](https://github.com/sholotiuk/pinTask/blob/master/docs/README.md#1-%D0%B2%D1%81%D1%82%D1%83%D0%BF)
 2. [Технічне завдання](https://github.com/sholotiuk/pinTask/blob/master/docs/README.md#2-%D1%82%D0%B5%D1%85%D0%BD%D1%96%D1%87%D0%BD%D0%B5-%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F)
