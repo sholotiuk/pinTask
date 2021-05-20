@@ -39,7 +39,7 @@ npm run dev
 
 Перейти на сторінку застосунку можна за одною з адрес, які вона відображає:
 ```
-> paintask@0.0.0 dev C:\Users\HP\painTask
+> paintask@0.0.0 dev C:\Users\HP\pinTask
 > vite
 
 
