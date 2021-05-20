@@ -40,6 +40,6 @@ ID: UC_1
 
 Відсутні
 
-![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_11.puml)
+![IMAGE TITLE](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_11.puml)
 
 
