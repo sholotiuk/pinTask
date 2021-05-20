@@ -18,6 +18,13 @@ npm install vue@next
 ```
 npm install -g @vue/cli
 ```
+- Проєкт *Vue* можна швидко налаштувати за допомогою *Vite*, виконавши наступні команди в вашому терміналі:
+```
+npm init @vitejs/app <project-name>
+cd <project-name>
+npm install
+npm run dev
+```
 ## Структура проєкта та запуск додатка
 Весь код знаходиться у папці ```src```, зміст якої:
 - папка assets зберігає допоміжні файли (наприклад, зображення)
@@ -28,9 +35,17 @@ npm install -g @vue/cli
 ```npm run dev```
 Перейти на сторінку застосунку можна за одною з адрес, які вона відображає:
 ```
+> paintask@0.0.0 dev C:\Users\HP\painTask
+> vite
+
+
   vite v2.3.3 dev server running at:
 
   > Local: http://localhost:3000/
   > Network: use `--host` to expose
 
+  ready in 470ms.
+
 ```
+## Інтерфейс
+
