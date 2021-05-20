@@ -1,20 +1,17 @@
 {
-  "name": "client",
-  "version": "0.0.1",
-  "description": "Клієнт системи управління проектами pinTask",
-  "main": "create.js",
-  "dependencies": {
-    "node-fetch": "^2.6.1"
-  },
-  "devDependencies": {},
+  "name": "paintask",
+  "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sholotyuk/pinTask.git"
+  "dependencies": {
+    "vue": "^3.0.5"
   },
-  "author": "IO-92 subteam",
-  "license": "MIT"
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.2",
+    "@vue/compiler-sfc": "^3.0.5",
+    "vite": "^2.3.3"
+  }
 }
-  
