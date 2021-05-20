@@ -58,4 +58,21 @@
 
 ![IMAGE TITLE](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_22.puml)
 
+**ID:** UC_3
+
+**НАЗВА:** Видалення задачі
+
+**УЧАСНИКИ:** Користувач, система
+
+**ПЕРЕДУМОВИ:** Користувач обрав задачу, яка видалятиметься
+
+**РЕЗУЛЬТАТ:** Система видалила задачу зі списку
+
+**ВИКЛЮЧНІ СИТУАЦІЇ:**
+
+Відсутні
+
+![IMAGE TITLE](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_33.puml)
+
+
 
