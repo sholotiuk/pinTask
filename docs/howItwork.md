@@ -51,7 +51,7 @@ npm run dev
   ready in 470ms.
 
 ```
-## Скріншоти програми
+## Скріншоти інтерфейсу
 ![alt text](images/interface1.png)
 ![alt text](images/interface2.png)
 ![alt text](images/interface3.png)
