@@ -42,4 +42,20 @@
 
 ![IMAGE TITLE](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_11.puml)
 
+**ID:** UC_2
+
+**НАЗВА:** Підтвердження виконання задачі
+
+**УЧАСНИКИ:** Користувач, система
+
+**ПЕРЕДУМОВИ:** Користувач виконав задачу
+
+**РЕЗУЛЬТАТ:** Система зафіксувала виконання
+
+**ВИКЛЮЧНІ СИТУАЦІЇ:**
+
+Відсутні
+
+![IMAGE TITLE](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_22.puml)
+
 
