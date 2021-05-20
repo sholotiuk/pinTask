@@ -5,22 +5,22 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema pinTask
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `mydb` ;
+DROP SCHEMA IF EXISTS `pinTask` ;
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema pinTask
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `pinTask` DEFAULT CHARACTER SET utf8 ;
+USE `pinTask` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`projects`
+-- Table `pinTask`.`projects`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`projects` ;
+DROP TABLE IF EXISTS `pinTask`.`projects` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`projects` (
+CREATE TABLE IF NOT EXISTS `pinTask`.`projects` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
@@ -28,11 +28,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`dictionary`
+-- Table `pinTask`.`dictionary`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`dictionary` ;
+DROP TABLE IF EXISTS `pinTask`.`dictionary` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`dictionary` (
+CREATE TABLE IF NOT EXISTS `pinTask`.`dictionary` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `comment` VARCHAR(100) NOT NULL,
@@ -41,38 +41,38 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`roles`
+-- Table `pinTask`.`roles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`roles` ;
+DROP TABLE IF EXISTS `pinTask`.`roles` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`roles` (
+CREATE TABLE IF NOT EXISTS `pinTask`.`roles` (
   `id` INT NOT NULL,
   `dictionary_id` INT NOT NULL,
   `projects_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_roles_projects1`
     FOREIGN KEY (`projects_id`)
-    REFERENCES `mydb`.`projects` (`id`)
+    REFERENCES `pinTask`.`projects` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_roles_dictionary`
     FOREIGN KEY (`dictionary_id`)
-    REFERENCES `mydb`.`dictionary` (`id`)
+    REFERENCES `pinTask`.`dictionary` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_roles_projects1_idx` ON `mydb`.`roles` (`projects_id` ASC) VISIBLE;
+CREATE INDEX `fk_roles_projects1_idx` ON `pinTask`.`roles` (`projects_id` ASC) VISIBLE;
 
-CREATE INDEX `fk_roles_dictionary_idx` ON `mydb`.`roles` (`dictionary_id` ASC) VISIBLE;
+CREATE INDEX `fk_roles_dictionary_idx` ON `pinTask`.`roles` (`dictionary_id` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`persons`
+-- Table `pinTask`.`persons`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`persons` ;
+DROP TABLE IF EXISTS `pinTask`.`persons` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`persons` (
+CREATE TABLE IF NOT EXISTS `pinTask`.`persons` (
   `id` INT NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `publickey` JSON NULL,
@@ -80,15 +80,15 @@ CREATE TABLE IF NOT EXISTS `mydb`.`persons` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `username_UNIQUE` ON `mydb`.`persons` (`username` ASC) VISIBLE;
+CREATE UNIQUE INDEX `username_UNIQUE` ON `pinTask`.`persons` (`username` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tasks`
+-- Table `pinTask`.`tasks`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`tasks` ;
+DROP TABLE IF EXISTS `pinTask`.`tasks` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`tasks` (
+CREATE TABLE IF NOT EXISTS `pinTask`.`tasks` (
   `id` INT NOT NULL,
   `details` JSON NULL,
   `projects_id` INT NOT NULL,
@@ -96,83 +96,83 @@ CREATE TABLE IF NOT EXISTS `mydb`.`tasks` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_tasks_projects1`
     FOREIGN KEY (`projects_id`)
-    REFERENCES `mydb`.`projects` (`id`)
+    REFERENCES `pinTask`.`projects` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tasks_persons1`
     FOREIGN KEY (`persons_id`)
-    REFERENCES `mydb`.`persons` (`id`)
+    REFERENCES `pinTask`.`persons` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_tasks_projects1_idx` ON `mydb`.`tasks` (`projects_id` ASC) VISIBLE;
+CREATE INDEX `fk_tasks_projects1_idx` ON `pinTask`.`tasks` (`projects_id` ASC) VISIBLE;
 
-CREATE INDEX `fk_tasks_persons1_idx` ON `mydb`.`tasks` (`persons_id` ASC) VISIBLE;
+CREATE INDEX `fk_tasks_persons1_idx` ON `pinTask`.`tasks` (`persons_id` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`signatures`
+-- Table `pinTask`.`signatures`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`signatures` ;
+DROP TABLE IF EXISTS `pinTask`.`signatures` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`signatures` (
+CREATE TABLE IF NOT EXISTS `pinTask`.`signatures` (
   `data` JSON NULL,
   `roles_id` INT NOT NULL,
   `tasks_id` INT NOT NULL,
   `persons_id` INT NOT NULL,
   CONSTRAINT `fk_signatures_roles`
     FOREIGN KEY (`roles_id`)
-    REFERENCES `mydb`.`roles` (`id`)
+    REFERENCES `pinTask`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_signatures_tasks1`
     FOREIGN KEY (`tasks_id`)
-    REFERENCES `mydb`.`tasks` (`id`)
+    REFERENCES `pinTask`.`tasks` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_signatures_persons1`
     FOREIGN KEY (`persons_id`)
-    REFERENCES `mydb`.`persons` (`id`)
+    REFERENCES `pinTask`.`persons` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_signatures_roles_idx` ON `mydb`.`signatures` (`roles_id` ASC) VISIBLE;
+CREATE INDEX `fk_signatures_roles_idx` ON `pinTask`.`signatures` (`roles_id` ASC) VISIBLE;
 
-CREATE INDEX `fk_signatures_tasks1_idx` ON `mydb`.`signatures` (`tasks_id` ASC) VISIBLE;
+CREATE INDEX `fk_signatures_tasks1_idx` ON `pinTask`.`signatures` (`tasks_id` ASC) VISIBLE;
 
-CREATE INDEX `fk_signatures_persons1_idx` ON `mydb`.`signatures` (`persons_id` ASC) VISIBLE;
+CREATE INDEX `fk_signatures_persons1_idx` ON `pinTask`.`signatures` (`persons_id` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`artefacts`
+-- Table `pinTask`.`artefacts`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`artefacts` ;
+DROP TABLE IF EXISTS `pinTask`.`artefacts` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`artefacts` (
+CREATE TABLE IF NOT EXISTS `pinTask`.`artefacts` (
   `id` INT NOT NULL,
   `unique_name` VARCHAR(45) NOT NULL,
   `projects_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_artefacts_projects1`
     FOREIGN KEY (`projects_id`)
-    REFERENCES `mydb`.`projects` (`id`)
+    REFERENCES `pinTask`.`projects` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `unique_name_UNIQUE` ON `mydb`.`artefacts` (`unique_name` ASC) VISIBLE;
+CREATE UNIQUE INDEX `unique_name_UNIQUE` ON `pinTask`.`artefacts` (`unique_name` ASC) VISIBLE;
 
-CREATE INDEX `fk_artefacts_projects1_idx` ON `mydb`.`artefacts` (`projects_id` ASC) VISIBLE;
+CREATE INDEX `fk_artefacts_projects1_idx` ON `pinTask`.`artefacts` (`projects_id` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`artefact_roles`
+-- Table `pinTask`.`artefact_roles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`artefact_roles` ;
+DROP TABLE IF EXISTS `pinTask`.`artefact_roles` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`artefact_roles` (
+CREATE TABLE IF NOT EXISTS `pinTask`.`artefact_roles` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
@@ -180,61 +180,61 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`artefact_links`
+-- Table `pinTask`.`artefact_links`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`artefact_links` ;
+DROP TABLE IF EXISTS `pinTask`.`artefact_links` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`artefact_links` (
+CREATE TABLE IF NOT EXISTS `pinTask`.`artefact_links` (
   `artefact_roles_id` INT NOT NULL,
   `artefacts_id` INT NOT NULL,
   `tasks_id` INT NOT NULL,
   CONSTRAINT `fk_artefact_links_artefact_roles1`
     FOREIGN KEY (`artefact_roles_id`)
-    REFERENCES `mydb`.`artefact_roles` (`id`)
+    REFERENCES `pinTask`.`artefact_roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_artefact_links_artefacts1`
     FOREIGN KEY (`artefacts_id`)
-    REFERENCES `mydb`.`artefacts` (`id`)
+    REFERENCES `pinTask`.`artefacts` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_artefact_links_tasks1`
     FOREIGN KEY (`tasks_id`)
-    REFERENCES `mydb`.`tasks` (`id`)
+    REFERENCES `pinTask`.`tasks` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_artefact_links_artefact_roles1_idx` ON `mydb`.`artefact_links` (`artefact_roles_id` ASC) VISIBLE;
+CREATE INDEX `fk_artefact_links_artefact_roles1_idx` ON `pinTask`.`artefact_links` (`artefact_roles_id` ASC) VISIBLE;
 
-CREATE INDEX `fk_artefact_links_artefacts1_idx` ON `mydb`.`artefact_links` (`artefacts_id` ASC) VISIBLE;
+CREATE INDEX `fk_artefact_links_artefacts1_idx` ON `pinTask`.`artefact_links` (`artefacts_id` ASC) VISIBLE;
 
-CREATE INDEX `fk_artefact_links_tasks1_idx` ON `mydb`.`artefact_links` (`tasks_id` ASC) VISIBLE;
+CREATE INDEX `fk_artefact_links_tasks1_idx` ON `pinTask`.`artefact_links` (`tasks_id` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`role_links`
+-- Table `pinTask`.`role_links`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`role_links` ;
+DROP TABLE IF EXISTS `pinTask`.`role_links` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`role_links` (
+CREATE TABLE IF NOT EXISTS `pinTask`.`role_links` (
   `roles_id` INT NOT NULL,
   `persons_id` INT NOT NULL,
   CONSTRAINT `fk_role_links_roles1`
     FOREIGN KEY (`roles_id`)
-    REFERENCES `mydb`.`roles` (`id`)
+    REFERENCES `pinTask`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_role_links_persons1`
     FOREIGN KEY (`persons_id`)
-    REFERENCES `mydb`.`persons` (`id`)
+    REFERENCES `pinTask`.`persons` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_role_links_roles1_idx` ON `mydb`.`role_links` (`roles_id` ASC) VISIBLE;
+CREATE INDEX `fk_role_links_roles1_idx` ON `pinTask`.`role_links` (`roles_id` ASC) VISIBLE;
 
-CREATE INDEX `fk_role_links_persons1_idx` ON `mydb`.`role_links` (`persons_id` ASC) VISIBLE;
+CREATE INDEX `fk_role_links_persons1_idx` ON `pinTask`.`role_links` (`persons_id` ASC) VISIBLE;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

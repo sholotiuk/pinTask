@@ -4,7 +4,7 @@
   "mysqlConfig": {
     "host": "127.0.0.1",
     "user": "root",
-    "password": "mysql",
-    "database": "mydb"
+    "password": "sebastian1402",
+    "database": "pinTask"
   }
 }

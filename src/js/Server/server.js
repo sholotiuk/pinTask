@@ -13,57 +13,53 @@ const loadEntities = require("./utils/loadEntities");
 /**
  * Function can Run server and able to return 'Server error' or 'Server started'
  */
-(async function main() {
 
-  const entities = {
-    public: new Map(),
-    private: new Map(),
-  };
-  loadEntities("./entities/public", entities.public);
-  loadEntities("./entities/private", entities.private);
+const Koa = require("koa");
+const Router = require("koa-router");
+const Service = require("./service");
 
-  global.config = JSON.parse(fs.readFileSync("config.json"));
-  global.db = await mysql.createConnection(global.config.mysqlConfig);
+const app = new Koa();
 
-  http
-    .createServer(async (req, res) => {
-      const url = req.url === "/" ? "/index.html" : req.url;
-      const [endpoint, name, action] = url.substring(1).split("/");
-      if (
-        endpoint === "api" ||
-        global.config.privateApiEndpoints.includes(endpoint)
-      ) {
-        const entity = (endpoint === "api"
-          ? entities.public
-          : entities.private
-        ).get(name);
-        const chunks = [];
-        req.on("data", (chunk) => chunks.push(chunk));
-        req.on("end", async () => {
-          try {
-            console.log('chunks', chunks.length ? JSON.parse(chunks.join('')) : [])
-            const result = await entity[action](chunks.length ? JSON.parse(chunks.join('')) : []);
-            if (typeof result === "object") {
-              res.end(JSON.stringify(result));
-            } else if (
-              typeof result !== "string" &&
-              !(result instanceof Buffer)
-            ) {
-              httpError(res, 500, "Server error");
-              return;
-            } else res.end(result);
-          } catch (e) {
-            console.log(e);
-            httpError(res, 500, "Server error");
-          }
-        });
-      } else {
-        const path = `./static${url}`;
-        fs.exists(path, (exists) => {
-          if (exists) fs.createReadStream(path).pipe(res);
-          else httpError(res, 404, "File is not found");
-        });
-      }
-    })
-    .listen(global.config.port, () => console.log('Server started'));
-})();
+const router = new Router();
+const service = new Service();
+
+
+router.get("/api/person/:id", async (ctx, next) => {
+    ctx.body = await service.findOne(ctx.query, ctx.path.id);
+}).get("/api/person", async (ctx, next) => {
+    ctx.body = await service.find(ctx.query);
+}).post("/api/person", async (ctx, next) => {
+    ctx.body = await service.create(ctx.query, ctx.req.body);
+}).put("/api/person/:id", async (ctx, next) => {
+    ctx.body = await service.update(ctx.query, ctx.path.id, ctx.req.body);
+}).delete("/api/person/:id", async (ctx, next) => {
+    ctx.body = await service.delete(ctx.query, ctx.path.id);
+})
+
+router.get("/api/task/:id", async(ctx, next) => {
+    ctx.body = await service.findOne(ctx.query, ctx.path.id);
+}).get("/api/task", async (ctx, next) => {
+    ctx.body = await service.find(ctx.query);
+}).post("/api/task", async (ctx, next) => {
+    ctx.body = await service.create(ctx.query, ctx.req.body);
+}).put("/api/task/:id", async (ctx, next) => {
+    ctx.body = await service.update(ctx.query, ctx.path.id, ctx.req.body);
+}).delete("/api/task/:id", async (ctx, next) => {
+    ctx.body = await service.delete(ctx.query, ctx.path.id);
+})
+
+router.get("/api/project/:id", async(ctx, next) => {
+    ctx.body = await service.findOne(ctx.query, ctx.path.id);
+}).get("/api/project", async (ctx, next) => {
+    ctx.body = await service.find(ctx.query);
+}).post("/api/project", async (ctx, next) => {
+    ctx.body = await service.create(ctx.query, ctx.req.body);
+}).put("/api/project/:id", async (ctx, next) => {
+    ctx.body = await service.update(ctx.query, ctx.path.id, ctx.req.body);
+}).delete("/api/project/:id", async (ctx, next) => {
+    ctx.body = await service.delete(ctx.query, ctx.path.id);
+})
+
+app.use(router.routes()).use(router.allowedMethods());
+
+app.listen(3001);
