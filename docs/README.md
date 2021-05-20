@@ -76,7 +76,7 @@
 
 ### 3.3 Проєктування бази даних
 
-*В рамках проекту розробляється модель бізнес-об'єктів, ER-модель та реляційна схема.*
+В рамках проекту розробляється модель бізнес-об'єктів, ER-модель та реляційна схема.*
 
 #### Модель бізнес-об'єктів
 ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/BEM)
@@ -87,5 +87,7 @@
 #### Реляційна схема
 ![](https://github.com/sholotyuk/PROJECT-4/blob/master/docs/images/Rel%20scheme.png)
 
+### 3.4 Інтерфейс
 
+![Preview](https://github.com/sholotiuk/pinTask/blob/master/docs/images/interface.jpg)
 
