@@ -1,0 +1,19 @@
+@startuml
+actor "Користувач" as User
+
+usecase "<b>UC_1</b>\n Додавати нову задачу" as UC_1
+usecase "<b>UC_2</b>\n Підтверджувати виконання задачі" as UC_2
+usecase "<b>UC_3</b>\n Видаляти задачу" as UC_3
+
+
+User -l-> UC_1
+User -d-> UC_2
+User -r-> UC_3
+
+
+right footer
+Організація баз даних.
+НТУУ "КПІ ім.І.Сікорського"
+Київ 2020 
+end footer
+@enduml
