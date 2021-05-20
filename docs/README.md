@@ -135,3 +135,8 @@ xlsxwriter - створення файлів розширення xlsx.
 
 ## 6. Висновки
 В результаті виконання лабораторних робіт з курсу ІПЗ було розроблено веб-сайт, що повністю відповідає технічному завдані.
+
+## 7. Джерела інформації
+- https://habr.com/ru/company/ruvds/blog/341348/
+- https://www.digitalocean.com/community/tutorials/how-to-scrape-a-website-using-node-js-and-puppeteer-ru
+- https://jace-dev.herokuapp.com/design/js-talks#/
