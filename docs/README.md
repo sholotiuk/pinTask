@@ -25,8 +25,21 @@
 ## 3. Проектування
 ### 3.1. Діаграма юзкейсів
 ![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_user.puml)
+## 3.2. Сценарії для користувача
+ID: UC_1
 
+НАЗВА: Додавання нової задачі
 
+УЧАСНИКИ: Користувач, система
 
+ПЕРЕДУМОВИ: Користувач ввів задачу 
+
+РЕЗУЛЬТАТ: Система зберегла задачу
+
+ВИКЛЮЧНІ СИТУАЦІЇ:
+
+Відсутні
+
+![](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/sholotyuk/pinTask/master/src/uml/UC_11.puml)
 
 
